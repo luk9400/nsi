@@ -1,1 +1,0 @@
-smallest_factor.ads:8:15: medium: postcondition might fail, cannot prove N'Old / Factor = N (e.g. when Factor = 1 and N = 1 and N'Old = 2)[#0]
