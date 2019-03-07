@@ -1,0 +1,207 @@
+{
+  "spark": [
+    {
+      "name": "Linear_Search",
+      "sloc": [
+        {
+          "file": "linear_search.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "Linear_Search.Search",
+      "sloc": [
+        {
+          "file": "linear_search.ads",
+          "line": 9
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+    {
+      "file": "linear_search.ads",
+      "line": 11,
+      "col": 57,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Linear_Search.Search",
+        "sloc": [
+          {
+            "file": "linear_search.ads",
+            "line": 9
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "linear_search.ads",
+      "check_line": 11,
+      "check_col": 57,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "linear_search.ads",
+      "line": 11,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "Linear_Search.Search",
+        "sloc": [
+          {
+            "file": "linear_search.ads",
+            "line": 9
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 2966,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1098,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "linear_search.ads",
+      "check_line": 11,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Linear_Search",
+          "sloc": [
+            {
+              "file": "linear_search.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "Linear_Search.Search",
+          "sloc": [
+            {
+              "file": "linear_search.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Linear_Search.Search",
+          "sloc": [
+            {
+              "file": "linear_search.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Linear_Search.Search",
+          "sloc": [
+            {
+              "file": "linear_search.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "marking": 2.04213996767066E-04,
+    "globals (basic)": 1.23757999972440E-04,
+    "globals/properties (advanced)": 3.68055014405400E-04,
+    "flow analysis": 1.59743800759315E-03,
+    "codepeer results": 4.09599988415721E-06,
+    "init_why_sections": 1.82856994797476E-04,
+    "translation of standard": 2.62787402607501E-03,
+    "translation of compilation unit": 1.77678500767797E-03,
+    "proof": 5.16982853412628E-01
+  }
+}

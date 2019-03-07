@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+F:\INF\nsi\list1\task1\smallest_factor.gpr
+20190307180746
+[BOUND OBJECT FILES]
+F:\INF\nsi\list1\task1\obj\smallest_factor.o
+F:\INF\nsi\list1\task1\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LF:\INF\nsi\list1\task1\obj\
+-LF:\INF\nsi\list1\task1\obj\
+-LC:/gnat/2018/lib/gcc/x86_64-pc-mingw32/7.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2018/lib/gcc/x86_64-pc-mingw32/7.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000
