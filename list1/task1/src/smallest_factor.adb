@@ -3,16 +3,17 @@ with SPARK_Mode
 is
   procedure SmallestF (N : in out Positive; Factor : out Positive)
   is
-  begin
-    for I in Integer range 2 .. N loop
+   begin
+      Factor := 1;
+    for I in Positive range 2 .. N loop
+         pragma Loop_Invariant (for all J in 2 .. I - 1 => N rem J /= 0);
+         Factor := I;
       if N rem I = 0 then
-        Factor := I;
-        N := N / Factor;
         exit;
       end if;
     end loop;
 
-    Factor := 1;
+    N := N / Factor;
 
   end SmallestF;
 
