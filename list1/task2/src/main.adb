@@ -5,7 +5,7 @@ procedure Main is
   X: Integer;
 begin
 
-   X := 0;
+   X := -2;
    Ada.Text_IO.Put_Line ("Value of poly: " & Horner(X, Arr)'Image);
 
 end Main;

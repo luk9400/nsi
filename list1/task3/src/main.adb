@@ -1,12 +1,9 @@
 with Selection;
 with Ada.Text_IO;
 procedure Main is
-  Arr: Selection.Arr (1 .. 7) := (7, 5 ,3, 5, 1, 4, 8);
-  Arr1: Selection.Arr (1 .. 1);
+  Arr: Selection.Arr (-2 .. 0 ) := (-1 => -1, -2 => 0, others => -2);
 
 begin
-
-  Arr1(Arr1'First) := 7;
 
   for I in Arr'Range loop
     Ada.Text_IO.Put_Line(Arr (I)'Image);
