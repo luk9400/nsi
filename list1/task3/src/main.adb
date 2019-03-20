@@ -1,7 +1,7 @@
 with Selection;
 with Ada.Text_IO;
 procedure Main is
-  Arr: Selection.Arr (1 .. 6) := (7, 5 ,3, 1, 4, 8);
+  Arr: Selection.Arr (1 .. 7) := (7, 5 ,3, 5, 1, 4, 8);
   Arr1: Selection.Arr (1 .. 1);
 
 begin
