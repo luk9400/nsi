@@ -2,27 +2,25 @@ package body Selection with SPARK_Mode is
 
   procedure Sort (A: in out Arr) is
     Tmp: Integer;
-    I: Integer;
-    J: Integer;
+    Min: Integer;
   begin
-    I := A'First;
+
     if A'Length > 1 then
-      while I <= A'Last - 1 loop
-        pragma Loop_Invariant (for all K in A'First + 1 .. I => A (K - 1) <= A (K));
-        pragma Assume (I >= A'First);
-        J := I + 1;
-        while J <= A'Last loop
-          pragma Loop_Invariant (for all J in I + 1 .. A'Last => J >= I and J <= A'Last);
-          pragma Loop_Invariant (for all K in I .. J => A (I) <= A (K));
-          pragma Assume (J > A'First);
-          if A (J) < A(I) then
-            Tmp := A (I);
-            A (I) := A (J);
-            A (J) := Tmp;
+      for I in Integer range A'First .. A'Last loop
+        Min := I;
+        for J in Integer range I + 1 .. A'Last loop
+          pragma Loop_Invariant (for all K in I .. J - 1 => A (Min) <= A (K));
+          pragma Loop_Invariant (Min in I .. A'Last);
+
+          if A (J) < A(Min) then
+            Min := J;
           end if;
-          J := J + 1;
         end loop;
-        I := I + 1;
+
+        Tmp := A (I);
+        A (I) := A (Min);
+        A (Min) := Tmp;
+        pragma Loop_Invariant (for all K in A'First .. I => (for all M in K + 1 .. A'Last => A (K) <= A (M)));
       end loop;
     end if;
 
