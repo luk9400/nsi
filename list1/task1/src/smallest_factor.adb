@@ -1,7 +1,7 @@
 package body Smallest_Factor with SPARK_Mode is
   procedure SmallestF (N : in out Positive; Factor : out Positive) is
   begin
-    Factor := 1;
+    Factor := 2;
     for I in Positive range 2 .. N loop
       pragma Loop_Invariant (for all J in 2 .. I - 1 => N rem J /= 0);
 

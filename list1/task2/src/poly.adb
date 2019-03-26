@@ -1,4 +1,3 @@
-with Ada.Text_IO;
 package body Poly with SPARK_Mode is
    function Horner (X: Integer; A: Vector) return Integer is
     Acc: Integer := 0;
