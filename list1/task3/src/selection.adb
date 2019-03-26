@@ -1,37 +1,28 @@
 package body Selection with SPARK_Mode is
 
   procedure Sort (A: in out Arr) is
-    Min: Integer;
     Tmp: Integer;
+    I: Integer;
+    J: Integer;
   begin
-
-    if A'Length = 2 and then A (A'First) > A (A'Last) then
-      Tmp := A (A'First);
-      A (A'First) := A (A'Last);
-      A (A'Last) := Tmp;
-    elsif A'Length > 2 then
-      for I in Integer range A'First .. A'Last - 1 loop
-        Min := I;
-        --pragma Loop_Invariant (for all I in A'First .. A'Last => Min >= A'First and Min <= A'Last);
+    I := A'First;
+    if A'Length > 1 then
+      while I <= A'Last - 1 loop
         pragma Loop_Invariant (for all K in A'First + 1 .. I => A (K - 1) <= A (K));
-        --pragma Loop_Invariant ((for all K in I .. A'Last and for all M in A'First .. I - 1) => A (K) >= A (M));
-        for J in Integer range I + 1 .. A'Last loop
-          --pragma Loop_Invariant (for all J in I + 1 .. A'Last => Min >= I - 1 and then Min >= A'First and then Min <= A'Last);
-          pragma Loop_Invariant (for all M in I .. J - 1 => A (M) >= A (Min));
-          if A (J) < A (Min) then
-          -- Min := J;
-          Tmp := A (I);
-          A (I) := A (Min);
-          A (Min) := Tmp;
+        pragma Assume (I >= A'First);
+        J := I + 1;
+        while J <= A'Last loop
+          pragma Loop_Invariant (for all J in I + 1 .. A'Last => J >= I and J <= A'Last);
+          pragma Loop_Invariant (for all K in I .. J => A (I) <= A (K));
+          pragma Assume (J > A'First);
+          if A (J) < A(I) then
+            Tmp := A (I);
+            A (I) := A (J);
+            A (J) := Tmp;
           end if;
+          J := J + 1;
         end loop;
-
---          if Min /= I then
---            Tmp := A (I);
---            A (I) := A (Min);
---            A (Min) := Tmp;
---          end if;
-
+        I := I + 1;
       end loop;
     end if;
 
