@@ -14,6 +14,8 @@ package body Max2 with SPARK_Mode is
       
       pragma Loop_Invariant (for all J in V'First .. I => Max >= V(J));
       pragma Loop_Invariant (for some J in V'First .. I => Max = V(J));
+      pragma Loop_Invariant ((if Max2 /=0 then
+       (for some J in V'First .. I => V(J) > Max2)));
       pragma Loop_Invariant (((for some J in V'First .. I => V(J) = Max2) and
                               (for all J in V'First .. I => (if V(J) > Max2 then (for all K in V'First .. I => V(K) <= V(J)))))
                              or

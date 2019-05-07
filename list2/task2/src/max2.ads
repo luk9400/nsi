@@ -8,6 +8,8 @@ package Max2 with SPARK_Mode is
     Post => FindMax2'Result >= 0 and
     (FindMax2'Result = 0 or
        (for some I in V'Range => FindMax2'Result = V(I))) and
+    (if FindMax2'Result /=0 then
+       (for some I in V'Range => V(I) > FindMax2'Result)) and
     (if FindMax2'Result = 0 then
        (for all I in V'Range =>
             (for all J in V'Range => V(I) = V(J)))
