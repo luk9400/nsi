@@ -6,23 +6,22 @@ package body Max2 with SPARK_Mode is
   begin
     for I in Integer range V'Range loop
       if V(I) > Max then
+        Max2 := Max;
         Max := V(I);
-      end if;
-      pragma Loop_Invariant (for all J in V'First .. I => Max >= V(J));
-    end loop;
-    
-    for I in Integer range V'Range loop
-      if V(I) /= Max and then V(I) > Max2 then
+      elsif V(I) > Max2 and V(I) < Max then
         Max2 := V(I);
       end if;
-      pragma Loop_Invariant (for all J in V'Range => V(J) <= Max); 
-      pragma Loop_Invariant (if Max2 = 0 then (for all J in V'First .. I => V(J) = Max));
-      pragma Loop_Invariant (if Max2 /= 0 then (for some J in V'First .. I => V(J) = Max2));
+      
+      pragma Loop_Invariant (for all J in V'First .. I => Max >= V(J));
+      pragma Loop_Invariant (for some J in V'First .. I => Max = V(J));
+      pragma Loop_Invariant (((for some J in V'First .. I => V(J) = Max2) and
+                              (for all J in V'First .. I => (if V(J) > Max2 then (for all K in V'First .. I => V(K) <= V(J)))))
+                             or
+                              (Max2 = 0 and (for all J in V'First .. I => V(J) = Max)));
     end loop;
     
     return Max2;
     
   end FindMax2;
   
-
 end Max2;
